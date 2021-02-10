@@ -175,18 +175,13 @@ namespace Aeris
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         private static int CharToInt(char @char)
         {
-            return unchecked(Unsafe.As<char, int>(ref @char) - 48);
+            return unchecked(@char - 48);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         private static char IntToChar(int @int)
         {
-            unchecked
-            {
-                @int += 48;
-            }
-
-            return Unsafe.As<int, char>(ref @int);
+            return (char)(@int + 48);
         }
     }
 }
